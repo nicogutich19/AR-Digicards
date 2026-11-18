@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class FlowSceneManager : MonoBehaviour
 {
-    [SerializeField] private string ARSceneName = "ARExperienceTest";
-    [SerializeField] private string MainSceneName = "PanelsFlow";
+    [SerializeField] private string arSceneName = "ARExperienceTest";
+    [SerializeField] private string mainSceneName = "PanelsFlow";
     public void LoadARExperience()
     {
-        SceneManager.LoadScene(ARSceneName);
+        SceneManager.LoadScene(arSceneName);
     }
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene(MainSceneName);
+        SceneManager.LoadScene(mainSceneName);
     }
 }
