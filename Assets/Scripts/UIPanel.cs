@@ -5,17 +5,23 @@ public abstract class UIPanel : MonoBehaviour
     public bool isOpen => gameObject.activeSelf;
     public void Open()
     {
-        if (!isOpen)
+        if (isOpen)
         {
             return;
         }
-        OnClosing();
         gameObject.SetActive(true);
+        OnOpened();
 
     }
 
     public void Close()
     {
+        if (!isOpen)
+        {
+            return;
+        }
+        OnClosing();
+        gameObject.SetActive(false);
 
     }
 
@@ -23,7 +29,7 @@ public abstract class UIPanel : MonoBehaviour
     {
     }
 
-    protected virtual void OnOpening()
+    protected virtual void OnOpened()
     {
     }
 }
