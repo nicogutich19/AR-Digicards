@@ -1,10 +1,17 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EventOne : MonoBehaviour
 {
     public static EventOne Instance;
 
     public GameObject test;
+
+    [Header("Objetos Interactivos")]
+
+    public GameObject tiara;
+    public GameObject pastel;
+    public List<GameObject> flores;
     private void Awake()
     {
         if (Instance == null)
@@ -29,5 +36,11 @@ public class EventOne : MonoBehaviour
     public void Detectado()
     {
         Debug.Log("imagen detectada");
+    }
+    public void IniciarSecuencia()
+    {
+        tiara.SetActive(true);
+        LeanTween.moveY(tiara, 15f, 1f).setEase(LeanTweenType.easeOutQuint);
+        LeanTween.rotateY(tiara, 720f, 10f);
     }
 }

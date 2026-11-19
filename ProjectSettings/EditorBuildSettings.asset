@@ -6,8 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+=======
+    path: Assets/Scenes/PanelsFlow.unity
+    guid: 50f4e8faf4bf92e4896b23dc748f5be0
+  - enabled: 1
+    path: Assets/Scenes/ARExperienceTest.unity
+    guid: 9b6d8a4aab6cca44bbec756f500eac70
+>>>>>>> Stashed changes
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
