@@ -27,7 +27,13 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+<<<<<<< Updated upstream
     - rid: 7710931500490817536
+=======
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1756022596065820676
+>>>>>>> Stashed changes
       type: {class: AndroidPlatformBuildSettings, ns: UnityEditor.Android, asm: UnityEditor.Android.Extensions}
       data:
         m_Development: 0
