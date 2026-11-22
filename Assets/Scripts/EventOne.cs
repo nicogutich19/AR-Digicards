@@ -36,6 +36,7 @@ public class EventOne : MonoBehaviour
     public void Detectado()
     {
         Debug.Log("imagen detectada");
+        IniciarSecuencia();
     }
     public void IniciarSecuencia()
     {
