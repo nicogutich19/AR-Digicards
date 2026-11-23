@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class LoadingPanel : MonoBehaviour
+public class LoadingPanel : UIPanel
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private RectTransform spinner;
+    [SerializeField] private float speed = 150f;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        spinner.Rotate(0f, 0f, -speed * Time.unscaledDeltaTime);
     }
 }
