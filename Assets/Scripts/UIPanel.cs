@@ -4,10 +4,6 @@ public abstract class UIPanel : MonoBehaviour
 {
     public bool isOpen => gameObject.activeSelf;
 
-    public void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
     public void Open()
     {
         if (isOpen)
