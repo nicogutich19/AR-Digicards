@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ARExperienceController
   loadingPanel: {fileID: 1333853273}
+  extraDelay: 2
 --- !u!4 &964084852
 Transform:
   m_ObjectHideFlags: 0
@@ -606,6 +607,7 @@ GameObject:
   - component: {fileID: 1333853270}
   - component: {fileID: 1333853272}
   - component: {fileID: 1333853271}
+  - component: {fileID: 1333853274}
   - component: {fileID: 1333853273}
   m_Layer: 5
   m_Name: LoadingPanel
@@ -686,6 +688,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoadingPanel
   spinner: {fileID: 138661868}
   speed: 150
+  canvasGroup: {fileID: 0}
+  fadeDuration: 0.5
+--- !u!225 &1333853274
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333853269}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1353802544
 GameObject:
   m_ObjectHideFlags: 0
