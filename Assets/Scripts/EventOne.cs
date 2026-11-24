@@ -41,7 +41,6 @@ public class EventOne : MonoBehaviour
     public void IniciarSecuencia()
     {
         tiara.SetActive(true);
-        LeanTween.moveY(tiara, 15f, 1f).setEase(LeanTweenType.easeOutQuint);
-        LeanTween.rotateY(tiara, 720f, 10f);
+        LeanTween.rotateX(tiara, 3600f, 60f);
     }
 }

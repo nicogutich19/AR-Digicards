@@ -6,7 +6,7 @@ public class InteractiveTouch : MonoBehaviour
 {
     [SerializeField] private Camera sceneCamera;
 
-    private void Update()
+    public void Update()
     {
         Touchscreen touchscreen = Touchscreen.current;
 
