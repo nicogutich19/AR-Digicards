@@ -3,9 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class FlowSceneManager : MonoBehaviour
 {
+    public static FlowSceneManager Instance;
     [SerializeField] private string arSceneName = "ARExperienceTest";
     [SerializeField] private string mainSceneName = "PanelsFlow";
 
+
+    private void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
     public void LoadARExperience()
     {
         SceneManager.LoadScene(arSceneName);
@@ -16,8 +23,4 @@ public class FlowSceneManager : MonoBehaviour
         SceneManager.LoadScene(mainSceneName);
     }
 
-    private void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 }
