@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class UIPanel : MonoBehaviour
 {
     public bool isOpen => gameObject.activeSelf;
+
     public void Open()
     {
         if (isOpen)
