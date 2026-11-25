@@ -688,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoadingPanel
   spinner: {fileID: 138661868}
   speed: 150
-  canvasGroup: {fileID: 0}
+  canvasGroup: {fileID: 1333853274}
   fadeDuration: 0.5
 --- !u!225 &1333853274
 CanvasGroup:

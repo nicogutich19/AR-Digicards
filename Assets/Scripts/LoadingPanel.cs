@@ -17,14 +17,14 @@ public class LoadingPanel : UIPanel
 
     public void FadeOutAndClose()
     {
-        if (!isOpen)
+        if (!isOpen || isFadingOut)
         {
             return;
         }
-        StartCoroutine(FadeTransitionDuration());
+        StartCoroutine(FadeOutRoutine());
     }
 
-    private IEnumerator FadeTransitionDuration()
+    private IEnumerator FadeOutRoutine()
     {
         while (canvasGroup.alpha > 0f)
         {
@@ -37,5 +37,6 @@ public class LoadingPanel : UIPanel
     protected override void OnOpened()
     {
         canvasGroup.alpha = 1f;
+        isFadingOut = false;
     }
 }
