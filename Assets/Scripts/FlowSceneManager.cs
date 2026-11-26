@@ -16,8 +16,4 @@ public class FlowSceneManager : MonoBehaviour
         SceneManager.LoadScene(mainSceneName);
     }
 
-    private void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 }

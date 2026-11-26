@@ -1,9 +1,17 @@
+using System.Collections;
 using UnityEngine;
 using Vuforia;
 
 public class ARExperienceController : MonoBehaviour
 {
-    [SerializeField] private UIPanel loadingPanel;
+    [SerializeField] private LoadingPanel loadingPanel;
+    [SerializeField] private float extraDelay = 2.0f;
+
+    private IEnumerator DelayLoadingPanel()
+    {
+        yield return new WaitForSecondsRealtime(extraDelay);
+        loadingPanel.FadeOutAndClose();
+    }
 
     public void OnEnable()
     {
@@ -17,7 +25,7 @@ public class ARExperienceController : MonoBehaviour
 
     private void HandleVuforiaStarted()
     {
-        loadingPanel.Close();
+        StartCoroutine(DelayLoadingPanel());
         Debug.Log("Vuforia has been started.");
     }
 }
