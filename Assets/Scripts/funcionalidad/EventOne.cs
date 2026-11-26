@@ -40,7 +40,6 @@ public class EventOne : MonoBehaviour
     }
     public void IniciarSecuencia()
     {
-        tiara.SetActive(true);
         LeanTween.rotateX(tiara, 3600f, 60f);
     }
 }
