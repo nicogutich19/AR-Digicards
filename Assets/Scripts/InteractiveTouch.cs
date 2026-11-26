@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using NUnit.Framework.Internal.Execution;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using EU = UnityEngine.InputSystem.EnhancedTouch;
 
 public class InteractiveTouch : MonoBehaviour
 {
@@ -51,62 +53,110 @@ public class InteractiveTouch : MonoBehaviour
             return;
         }
 
-        TouchControl firstTouch = null;
-        TouchControl secondTouch = null;
-        int touchCount = 0;
-
-        foreach (TouchControl touch in touchscreen.touches)
-        {
-            if (!touch.press.isPressed)
-            {
-                continue;
-            }
-
-            touchCount++;
-
-            if (firstTouch == null)
-            {
-                firstTouch = touch;
-            }
-            else if (secondTouch == null)
-            {
-                secondTouch = touch;
-            }
-
-            if (touch.press.wasPressedThisFrame)
-            {
-                SelectObjectAt(touch.position.ReadValue(), cameraToUse);
-            }
-        }
+        int touchCount = EU.Touch.activeTouches.Count;
 
         switch (touchCount)
         {
             case 1:
-                HandleOneTouch(firstTouch, cameraToUse);
+                if (EU.Touch.activeTouches[0].phase == UnityEngine.InputSystem.TouchPhase.Began)
+                {
+                    Ray ray = cameraToUse.ScreenPointToRay(EU.Touch.activeTouches[0].screenPosition);
+
+                    if (Physics.Raycast(ray, out RaycastHit hit) &&
+                        hit.collider.CompareTag("Interactuable"))
+                    {
+                        selectedObject = hit.collider.transform;
+                        originalScale = selectedObject.localScale;
+                        currentScaleFactor = 1f;
+
+                        Debug.Log($"Objeto seleccionado: {selectedObject.name}");
+                    }
+                    else
+                    {
+                        selectedObject = null;
+                    }
+                }
+                else if (EU.Touch.activeTouches[0].phase == UnityEngine.InputSystem.TouchPhase.Moved)
+                {
+                    if (selectedObject != null)
+                    {
+                        Vector2 direction = previousSingleTouchPosition - EU.Touch.activeTouches[0].screenPosition;
+                        selectedObject.Rotate(direction, Space.Self);
+                    }
+                }
+
+                previousSingleTouchPosition = EU.Touch.activeTouches[0].screenPosition;
                 break;
 
             case 2:
-                HandleTwoTouches(firstTouch, secondTouch);
-                break;
+                EU.Touch secondTouch = EU.Touch.activeTouches[1];
 
-            case 3:
-                if (previousTouchCount != 3)
-                {
-                    HandleThreeTouches();
-                }
 
                 break;
-
             default:
-                if (touchCount > 3)
-                {
-                    HandleMoreThanThreeTouches();
-                }
-
                 break;
         }
 
-        previousTouchCount = touchCount;
+
+
+
+
+        //TouchControl firstTouch = null;
+        //TouchControl secondTouch = null;
+        //int touchCount = 0;
+
+        //foreach (TouchControl touch in touchscreen.touches)
+        //{
+        //    if (!touch.press.isPressed)
+        //    {
+        //        continue;
+        //    }
+
+        //    touchCount++;
+
+        //    if (firstTouch == null)
+        //    {
+        //        firstTouch = touch;
+        //    }
+        //    else if (secondTouch == null)
+        //    {
+        //        secondTouch = touch;
+        //    }
+
+        //    if (touch.press.wasPressedThisFrame)
+        //    {
+        //        SelectObjectAt(touch.position.ReadValue(), cameraToUse);
+        //    }
+        //}
+
+        //switch (touchCount)
+        //{
+        //    case 1:
+        //        HandleOneTouch(firstTouch, cameraToUse);
+        //        break;
+
+        //    case 2:
+        //        HandleTwoTouches(firstTouch, secondTouch);
+        //        break;
+
+        //    case 3:
+        //        if (previousTouchCount != 3)
+        //        {
+        //            HandleThreeTouches();
+        //        }
+
+        //        break;
+
+        //    default:
+        //        if (touchCount > 3)
+        //        {
+        //            HandleMoreThanThreeTouches();
+        //        }
+
+        //        break;
+        //}
+
+        //previousTouchCount = touchCount;
     }
 
     private void SelectObjectAt(Vector2 screenPosition, Camera cameraToUse)
