@@ -40,7 +40,6 @@ public class EventOne : MonoBehaviour
     }
     public void IniciarSecuencia()
     {
-        LeanTween.rotateX(pastel, -3600f, 60f);
         LeanTween.rotateX(tiara, 3600f, 60f);
     }
 }
