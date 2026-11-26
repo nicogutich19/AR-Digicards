@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using NUnit.Framework.Internal.Execution;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -262,7 +262,7 @@ public class InteractiveTouch : MonoBehaviour
 
     private void HandleMoreThanThreeTouches()
     {
-        Debug.Log("Se han detectado más de tres toques. No se realizará ninguna acción.");
+        Debug.Log("Se han detectado mï¿½s de tres toques. No se realizarï¿½ ninguna acciï¿½n.");
     }
 
     private sealed class InitialTransformState
