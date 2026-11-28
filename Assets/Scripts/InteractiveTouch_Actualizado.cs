@@ -115,6 +115,7 @@ public class InteractiveTouch_Actualizado : MonoBehaviour
                 if (firstTouch.press.wasPressedThisFrame)
                 {
                     SelectObjectAt(firstTouch.position.ReadValue(), cameraToUse);
+                    SelectMariposa(firstTouch.position.ReadValue(), cameraToUse);
                 }
 
                 HandleOneTouch(firstTouch, cameraToUse);
@@ -151,6 +152,19 @@ public class InteractiveTouch_Actualizado : MonoBehaviour
     // SELECCIÓN DE OBJETOS
     // =========================================================
 
+    private void SelectMariposa(Vector2 screenPosition, Camera cameraToUse)
+    {
+        if (Physics.Raycast(cameraToUse.ScreenPointToRay(screenPosition), out RaycastHit hit) &&
+            hit.collider.CompareTag("Mariposa"))
+        {
+            selectedObject = hit.collider.transform;
+            selectedObject.gameObject.SetActive(false);
+        }
+        else
+        {
+            selectedObject = null;
+        }
+    }
     private void SelectObjectAt(Vector2 screenPosition, Camera cameraToUse)
     {
         // Convierte la posición de la pantalla en un rayo desde la cámara.

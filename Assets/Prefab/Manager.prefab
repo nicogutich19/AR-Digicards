@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4908240276788761101}
-  - component: {fileID: 4009455261247018117}
   - component: {fileID: 419461554850288258}
   m_Layer: 0
   m_Name: Manager
@@ -33,22 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4009455261247018117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434374530254882189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be47853f557ccd48951b31846685499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractiveTouch
-  sceneCamera: {fileID: 0}
-  rotationSpeed: 0.1
-  minScaleFactor: 0.5
-  maxScaleFactor: 2
 --- !u!114 &419461554850288258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,4 +47,5 @@ MonoBehaviour:
   test: {fileID: 0}
   tiara: {fileID: 0}
   pastel: {fileID: 0}
+  mariposas: []
   flores: {fileID: 0}

@@ -1,15 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class EventOne : MonoBehaviour
 {
     public static EventOne Instance;
 
-    public GameObject test;
-
     [Header("Objetos Interactivos")]
 
     public GameObject tiara;
     public GameObject pastel;
+    public List<GameObject> mariposas;
     
     [Header("Objetos de la escena")]
 
@@ -25,15 +26,6 @@ public class EventOne : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void TestFuncional()
-    {
-        Debug.Log("Test comfirmado");
-        Prueba();
-    }
-    public void Prueba()
-    {
-        test.SetActive(true);
-    }
     public void Detectado()
     {
         Debug.Log("imagen detectada");
@@ -41,6 +33,29 @@ public class EventOne : MonoBehaviour
     }
     public void IniciarSecuencia()
     {
-        
+        MovimientoMariposas();
+    }
+    void MovimientoMariposas()
+    {
+        if (mariposas == null || mariposas.Count == 0)
+        {
+            Debug.LogWarning("no se han asignado mariposas");
+            return;
+        }
+        else if (mariposas != null && mariposas.Count > 0)
+        {
+            foreach (var mariposa in mariposas)
+            {
+                lock (mariposa)
+                {
+                    Vector3 randomPosition = new Vector3(Random.Range(-1f, 1f), 0f,Random.Range(-1f, 1f));
+                    mariposa.transform.position = randomPosition;
+                }
+            }
+        }
+        if (mariposas.All(m => !m.activeInHierarchy))
+        {
+            Debug.Log("Todas las mariposas han sido detectadas. Secuencia completada.");
+        }
     }
 }
