@@ -6,9 +6,6 @@ public class Mariposas : MonoBehaviour
     public Camera sceneCamera;
     public List<GameObject> mariposas;
 
-    [SerializeField] private float speed = 1f;
-
-
     void Start()
     {
         if (mariposas == null || mariposas.Count == 0)
