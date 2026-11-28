@@ -29,7 +29,7 @@ public class InteractiveObject : MonoBehaviour
                     //aqui puede llamar a la funcion que desee en EventOne
                     //el debug log es solo para confirmar que se ha tocado el objeto y la posicion del toque (lo puede borrar si quiere)
                     Debug.Log($"Objeto tocado: {hit.collider.gameObject.name}, posicion: {hit.point}");
-                    EventOne.Instance.TestFuncional();
+
                 }
             }
         }
